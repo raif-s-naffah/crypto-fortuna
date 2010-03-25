@@ -91,7 +91,7 @@ func (g *Generator) reseed() {
 	if err != nil {
 		m := "G.reseed(): AES error: " + err.String()
 		logFatal(m)
-		panicln(m)
+		panic(m + "\n")
 	}
 	g.aes = c
 	increment(g.counter)
@@ -140,7 +140,7 @@ func (g *Generator) rekey() {
 	c, err := aes.NewCipher(g.key)
 	if err != nil {
 		logError("rekey(): Unexpected AES error: " + err.String())
-		panicln("oops: unexpected error while rekeying a Generator: " + err.String())
+		panic("oops: unexpected error while rekeying a Generator: " + err.String() + "\n")
 	}
 	g.aes = c
 	g.md.Write(g.key)

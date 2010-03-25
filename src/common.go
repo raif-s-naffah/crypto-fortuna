@@ -98,7 +98,7 @@ func int63(prng PRNG) int64 {
 	n, _ := prng.Read(buffer)
 	if n != 8 {
 		logError("int63(): Was expecting 8 bytes but got " + strconv.Itoa(n))
-		panicln("oops: not enough random bytes are available")
+		panic("oops: not enough random bytes are available\n")
 	}
 	result := int64((buffer[0] & 0x7F) << 56)
 	for i := 0; i < 7; i++ {
