@@ -1,0 +1,1 @@
+This package provides an implementation of the cryptographically strong pseudo-random number generator (CSPRNG) in the Go programming language.
